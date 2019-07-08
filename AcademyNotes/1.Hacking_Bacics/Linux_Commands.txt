@@ -1,0 +1,170 @@
+
+apt update  - upgrade softwares in kali linux. 
+apt upgrade - upgrade kali linux 
+apt dist-upgrade or apt full-upgrade - Actual Migration of OS & Software from one version to other. 
+
+
+pwd      --> present working directory
+cd ~     --> Navigate to Home Directory
+whoami   --> Tell current user logged in 
+uname -a --> tell flavour of os. 
+man      --> tell the manual of the command. 
+apt install/remove <prog> --> 
+ Eg:- apt install tree 
+      apt remove tree 
+      apt remove --purge tree  ---> --purge will also remove the configuration files. 
+
+files 
+
+touch a ==> ccreate a dummy file. 
+cat > flag.txt --> edit the file and hit control + C 
+cat >> flag.txt --> append the contents to existing file. 
+
+Note:- for cat , if you hit ctrl + c ==> it will exit without saing the content. 
+                            ctrl + d ==> it will exit then and there itself. 
+
+
+cat /etc/passwd  --> it will have the db for the username
+cat /etc/shadow  --> user and hashed password. 
+file <file-name>.txt --> Display if its a directory or a symbolic link etc. 
+
+files/directories/softlinks 
+
+users/groups/others => you can give u,g,o
+
+u+r , u+w , u+x 
+g+r , g+w , g+x 
+o+r , o+w , o+x 
+
+a+x , a+r , a+w --> Give entire permissions. 
+
+tree (its an rpm it will give diagramatic representaiotn)
+
+single tab -> autofil 
+double tab -> listed all possibilites. 
+
+archiving  --> putting all files together. 
+compressing --> too much compression. 
+
+
+**archiving. 
+tar -cvf <filename>.tar <files>
+tar -xvf --> extract 
+tar -tvf --> list 
+tar -rvf <filename>.tar <files> --> append the files to the tar. 
+
+gzip 
+bzip2
+
+history -c  --> Clear the History 
+
+
+locate *.nsc --> show nmap files. 
+
+nmap is used for scanning, enumeration etc. 
+
+
+
+In Linux ctrl + C --> will kill 
+         ctrl + z --> wil run the process in background. 
+
+
+
+**** 
+
+traceroute <path> --> your path to google. 
+
+
+** Multiple Proxies. 
+
+/etc/proxychains.conf 
+
+Dynamic Chaining. 
+Strict chainging - 1 by 1 
+random chainining -  random 
+
+TOR -> Network of computer monitored by TOR gatekeepers. 
+
+Tor Browsers. 
+
+socks4 127.0.0.1 9050 --> anything thatis done on your machine will go to tor 
+
+
+killall openvpn --> kill all openvpn 
+
+
+
+macchanger  -s eth0 
+macchanger  --list (list the mac changers)
+macchanger  -r eth0
+
+
+******* 
+
+lsof /var/lib/dpkg/lock 
+pid <process>
+kill -9 <pid>
+
+
+dpkg -i <>.deb file 
+
+
+*** 
+Net Discover is also for Network scanning. 
+
+netdiscover 
+
+**nmap 
+nmap is intelligent to perform for private range , it does arp scan 
+nmap is intelligent to perform for the public range, it does icmp scan 
+
+nmap -sn 192.168.0.1/24  --> Ping Scan 
+
+
+
+**Metaspolitable 
+
+metasploitable 1 --> built and there in the sound forge 
+
+metasploitable 2 --> linux vm ubuntu
+
+metasploitable 3 - windows server 2008
+                 - linux ubuntu
+
+Download --> https://www.metasploit.com/download
+
+
+1. TCP COnnect Scan / Full Open Scan. 
+
+-sT -> TCP Scan 
+
+
+nmap -sT 192.168.0.140              [Scan the Ports]
+nmap -sT 192.168.0.140 --reason     [Scan the Ports and Mention the reason also]
+
+2. SYN Scan / Half Open Scan / Stealth Scan 
+
+nmap -sS <IP>
+namp -sS <IP> --reason 
+
+3. NULL Scan , THis is inverse scan. 
+send null packets to the target and check the response. 
+
+nmap -sN <IP>
+namp -sN <IP> --reason 
+
+
+4. FIN Scan. 
+
+nmap -sF <IP>
+namp -sF <IP> --reason 
+
+5. XMAS Scan 
+
+nmap -sX <IP>
+namp -sX <IP> --reason  
+
+nmap -sA <IP>
+namp -sA <IP> --reason
+
+ in the result if you are having firewall means it will say unfiltered. 
