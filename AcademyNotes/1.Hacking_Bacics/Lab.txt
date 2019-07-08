@@ -1,0 +1,10 @@
+**Virtual Box with Extension Pack. 
+
+1. Kali Linux Machine
+https://www.kali.org/downloads/
+ 
+2. Metasploitable2 Machine
+https://sourceforge.net/projects/metasploitable/files/Metasploitable2/
+
+3. Windows Machine
+https://www.microsoft.com/en-in/software-download/windows7
