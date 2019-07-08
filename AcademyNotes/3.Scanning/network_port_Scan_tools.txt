@@ -1,0 +1,22 @@
+Network Scanning tools. 
+1. Angry IP Scanner 
+2. NMAP 
+3. Advanced IP Scanner 
+
+
+
+
+SYN/FIN 
+ACK 
+RST
+PSH
+URG 
+
+
+SYN --> Start 
+FIN --> Finish 
+ACK --> Acknowledge
+RST - Reset Connection 
+PSH - Send Buffer 
+URG - Data should be processed urgently 
+
