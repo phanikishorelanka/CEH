@@ -1,0 +1,98 @@
+
+**Important websites 
+
+1. https://kali.org/  , Go to downloads, and download the virutal box version. 
+2. https://virtualbox.org/ , download latest virtual box. , Download extension pack. 
+
+File --> Preferences --> Extensions , Add the extension pack. 
+
+3. whatismyipaddress.com --> Tell your ip. 
+
+4. samairproxy list   --> List of free and open proxies. 
+https://premproxy.com/list/
+
+elite type proxies are more secure but they wil not save logs, but its up to us. 
+
+5. VPNS 
+
+protonvpn 
+nord vpn
+tunnelbear
+express 
+
+
+VPN - vpnbook.com 
+
+on windows use proton vpn 
+
+6. the hidden wiki 
+https://thehiddenwiki.com/Main_Page
+
+7. Default ttl values. 
+https://subinsb.com/default-device-ttl-values/
+
+Device / OS	TTL
+*nix (Linux/Unix)	64
+Windows	128
+Solaris/AIX	254
+
+
+How to check from ping which os it is. 
+
+final ttl = 118
+no of nodes in trace routes =  10
+default ttl value = 118 + 10 = 128 it can be windows. 
+
+
+
+8. ankitfadia.in 
+
+9. https://ping.eu/ --> webtraffic. 
+
+it will get the ttl value. 
+
+
+10. https://www.wappalyzer.com/ --> know the target info based on the website details. 
+
+
+11. whois database. --> kali linux command.  
+
+whois <website>
+
+12. search whois in google 
+
+http://whois.domaintools.com/
+
+theharvester  -d genpact.com -l 500 -b google -f results.html 
+
+13. insecam.org 
+
+https://www.insecam.org
+
+
+14. IP lookups. 
+
+https://whatismyipaddress.com/
+
+https://whatismyipaddress.com/ip-lookup
+
+95.240.163.157 
+
+no creds.
+default creds. 
+
+
+15. https://grabify.link/
+
+16. CIDR 
+
+http://www.rjsmith.com/CIDR-Table.html
+
+cidr.xyz 
+
+
+17. https://nmap.org/
+
+
+
+
