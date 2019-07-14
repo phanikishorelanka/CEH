@@ -1,0 +1,8 @@
+**Download Kali Linux 
+
+
+**Upgrading the Kali Linux 
+
+apt -y upgrade  --> upgrade your kali linux machine 
+sudo apt dist-upgrade --> upgrade only the packages but not the kernel 
+
