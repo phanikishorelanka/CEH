@@ -224,5 +224,27 @@ Ask your freiend to hit the url http://192.168.0.115/  and download the document
 
 
 
+for WAN Attacks. 
+
+
+WAN level and LAN Level are same, except the things that for your LHOST , set the router public ip and in router do port forwardig 
+
+
+
+1. Go to router http://192.168.1.1
+
+search for portforwarding or virtual server 
+
+in this the trick is that you configure the external communications to route to the particular ip. 
+
+set for both tcp and udp ports. 
+
+
+canyouseeme.org -> verify your ports are forwarded or not. 
+
+
+nc -lvp 3535 , starting a servicee with this port. 
+
+
 
 
