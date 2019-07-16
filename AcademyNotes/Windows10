@@ -246,5 +246,7 @@ canyouseeme.org -> verify your ports are forwarded or not.
 nc -lvp 3535 , starting a servicee with this port. 
 
 
+for msfconsole you can use the LHOST as private IP only not public. 
+
 
 
