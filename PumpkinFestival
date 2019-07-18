@@ -1,0 +1,156 @@
+**Hacking Pumpkin festival 
+
+Nmap Scan 
+
+root@osboxes:~# nmap -p- -sV -A 192.168.1.16
+Starting Nmap 7.70 ( https://nmap.org ) at 2019-07-17 21:51 EDT
+Nmap scan report for 192.168.1.16
+Host is up (0.00027s latency).
+Not shown: 65532 closed ports
+PORT     STATE SERVICE VERSION
+21/tcp   open  ftp     vsftpd 2.0.8 or later
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+|_drwxr-xr-x    2 0        0            4096 Jul 12 22:26 secret
+| ftp-syst: 
+|   STAT: 
+| FTP server status:
+|      Connected to 192.168.1.12
+|      Logged in as ftp
+|      TYPE: ASCII
+|      No session bandwidth limit
+|      Session timeout in seconds is 300
+|      Control connection is plain text
+|      Data connections will be plain text
+|      At session startup, client count was 5
+|      vsFTPd 3.0.2 - secure, fast, stable
+|_End of status
+80/tcp   open  http    Apache httpd 2.4.7 ((Ubuntu))
+| http-robots.txt: 4 disallowed entries 
+|_/wordpress/ /tokens/ /users/ /store/track.txt
+|_http-server-header: Apache/2.4.7 (Ubuntu)
+|_http-title: Mission-Pumpkin
+6880/tcp open  ssh     OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.13 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   1024 eb:cb:da:b3:be:b6:c8:0a:8b:6e:d5:bc:51:f7:9c:11 (DSA)
+|   2048 19:6b:6e:d3:8a:fa:a9:73:05:5e:ac:af:28:ff:55:b8 (RSA)
+|   256 00:a0:f2:8c:5e:a7:7e:7b:7b:d4:72:c3:ad:41:79:3b (ECDSA)
+|_  256 aa:04:61:9a:ca:19:90:c3:55:3c:fc:cc:1a:05:be:3f (ED25519)
+MAC Address: 08:00:27:FA:92:8E (Oracle VirtualBox virtual NIC)
+Device type: general purpose
+Running: Linux 3.X|4.X
+OS CPE: cpe:/o:linux:linux_kernel:3 cpe:/o:linux:linux_kernel:4
+OS details: Linux 3.2 - 4.9
+Network Distance: 1 hop
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.27 ms 192.168.1.16
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 30.51 seconds
+root@osboxes:~# 
+
+
+**info 
+
+---
+ftp://192.168.1.16:21/secret/token.txt
+
+PumpkinToken : 2d6dbbae84d724409606eddd9dd71265
+---
+
+---
+
+View Source:- anathor pumpkin token 
+
+PumpkinToken : 45d9ee7239bc6b0bb21d3f8e1c5faa52
+
+---
+
+http://192.168.1.16/store/track.txt 
+
+Hey Jack!
+
+Thanks for choosing our local store. Hope you like the services.
+Tracking code : 2542 8231 6783 486
+
+-Regards 
+admin@pumpkins.local
+
+
+
+
+**************************
+
+
+view source 
+
+
+<html>
+<head>
+<title>Mission-Pumpkin</title>
+<link rel="icon" href="img/favicon.ico" sizes="16x16">
+<style>
+body {
+  background-color: #FCF0E4;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+}
+</style>
+<script>
+var isNS = (navigator.appName == "Netscape") ? 1 : 0;
+
+if(navigator.appName == "Netscape") document.captureEvents(Event.MOUSEDOWN||Event.MOUSEUP);
+
+function mischandler(){
+return false;
+}
+
+function mousehandler(e){
+var myevent = (isNS) ? e : event;
+var eventbutton = (isNS) ? myevent.which : myevent.button;
+if((eventbutton==2)||(eventbutton==3)) return false;
+}
+document.oncontextmenu = mischandler;
+document.onmousedown = mousehandler;
+document.onmouseup = mousehandler;
+</script>
+</head>
+<body>
+</br></br>
+<img src= "img/cat.gif" class="center" />
+<!-- Image Credits : Pusheen - https://pusheen.com/ -->
+<center>
+<p style="font-family: verdana; font-size: 120%;">
+</br></br>
+</br>
+<b><i>-- Happy Carnival --</i></b>
+<br>
+<center> 
+<p>Hola! Your Pumpkins are already at the PumpkinFestival.</p>
+<p>Jack took all the efforts on raising your pumpkins with the help of Harry.</p>
+<p>PumpkinTokens can help you get to your pumpkins.</p>
+<b><i>Alohomora!</i></b>
+</center>  
+<br>
+<div class="token"> 
+<div>
+<div> 
+<div>
+<div>
+<!-- Harry, Find The Pumpkin -->
+</div>      
+</div>
+</div>
+</div>   
+</div>
+</br></br>
+<p style="color:#FCF0E4">PumpkinToken : 45d9ee7239bc6b0bb21d3f8e1c5faa52</p>
+</center>
+</body>
+</html>
