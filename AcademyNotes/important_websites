@@ -181,3 +181,6 @@ Google --> owasp xss cheat sheet
 https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet
 
 
+
+37. url encoder 
+http://urlencoder.org/
