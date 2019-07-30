@@ -1,0 +1,49 @@
+Thank you for all your wishes!
+
+First and foremost, I would like to express my heartfelt thanks to the God Almighty for making this to happen.
+
+For the past 1 year, I was eager to complete this certification. By taking guidance from my friends, I registered for the course on 12th February and I opted for 2 months Lab + Certification. The scheduled start date for Lab was 10th March. Between these days I was preparing myself by learning the basic concepts and working on vulnerable machines. During this span of time, I got a chance to attend Advanced Infrastructure Security Assessment training in NullCon which was a value addition to my learning.
+
+On 10th March, I received my lab access along with training contents. Though 2 months lab was a quite short duration, According to me, shorter the time-the more I will concentrate; longer the time-the more I will keep on postponing.
+
+From Day 1 started with my lab course, it took 10 days for me to complete the basic lab exercises and started working on the machines. Every day I used to spend around 3-4 hours late night for cracking the machines. At the end of my lab completion I was able to crack around 20 machines in the Lab and ensured proper evidences are collected as the lab report would be a bonus 5 point on the exam evaluation. For submitting the lab report we have to complete the lab exercises and at least 10 machines has to be rooted. 
+
+After the end of my lab date 9th May, I was not able to spend much time on learning, but whenever I get some time I used to practice some publicly available machines.
+
+Finally my exam was scheduled on 19th July at 2:30 AM.
+
+The exam pattern was to crack
+
+1. Root Access with Buffer Overflow Exploit -25 Points
+
+2. One Machine with Root Access - 25 Points
+
+3. Two Machines with Root Access - 20 * 2 = 40 Points
+
+4. One Machine with Root Access - 10 Points
+
+I had to appear 15 minutes prior to the scheduled exam time as to complete the identity verification and proctor set up tasks. It took 25 minutes for me to complete the process and then I received my access to the exam machines by 2:40 AM. 
+
+I started with the Buffer flow machine and got root access by around 7:00 AM and parallel scans were running for other machines.
+
+Took a small 15 min break and started with one 20 point machine and got the full root access by around 11:45 AM.
+
+Took a 2 hour break and then started with 10 point machine and got the full root access by around 7:00 PM and went for an hour break.
+
+Again I started working parallel on rest of the 2 machines, which is the mistake that should have been avoided. I could not root both the machines but I managed to get user level access on both of the remaining machines. The proctor closed the session sharp at 2:15 AM on the next day. I ensured all screenshots are taken properly and went to sleep.
+
+On 20th July, I started preparing my report from 11:00 AM and submitted both the exam and lab report in the prescribed format at 9:00 PM. Later I received an acknowledgement mail on 21st July at 3:30 AM stating that results would be shared within 5 business days.
+
+My curiosity made to check my emails very often to look for the results during these last few days. Finally, today 26th July around 7:30 AM I received my congratulations email from Offensive Security.
+
+It was a very challenging experience and the one which can be cherished forever. 
+
+I would take this opportunity to thank Kohli, Rohit for motivating and guiding me throughout these days. It was his inspiration which made me to opt for this exam.
+
+Below are the other few learning which I took away for me from this course
+
+1. Try Harder - You may never know, giving one more try will help to get what you want.
+
+2. Continuous & Determined Learning will self-motivate and keep the confidence in you.
+
+I would also wish to thank my team & InfoSec group for your encouragement and support throughout these days.
