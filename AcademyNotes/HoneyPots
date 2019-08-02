@@ -1,0 +1,154 @@
+root@osboxes:~# git clone https://github.com/H4CK3RT3CH/pentbox-1.8
+Cloning into 'pentbox-1.8'...
+remote: Enumerating objects: 306, done.
+remote: Total 306 (delta 0), reused 0 (delta 0), pack-reused 306
+Receiving objects: 100% (306/306), 808.04 KiB | 435.00 KiB/s, done.
+Resolving deltas: 100% (113/113), done.
+root@osboxes:~# ls -l
+total 44
+drwxr-xr-x 2 root root 4096 May 21 19:17 Desktop
+drwxr-xr-x 2 root root 4096 May 21 19:17 Documents
+drwxr-xr-x 2 root root 4096 May 21 19:17 Downloads
+drwxr-xr-x 5 root root 4096 Aug  1 03:19 Evil-Droid
+drwxr-xr-x 2 root root 4096 May 21 19:17 Music
+drwxr-xr-x 6 root root 4096 Aug  2 01:28 pentbox-1.8
+drwxr-xr-x 3 root root 4096 Aug  2 01:25 pentmenu
+drwxr-xr-x 2 root root 4096 May 21 19:17 Pictures
+drwxr-xr-x 2 root root 4096 May 21 19:17 Public
+drwxr-xr-x 2 root root 4096 May 21 19:17 Templates
+drwxr-xr-x 2 root root 4096 May 21 19:17 Videos
+root@osboxes:~# cd pentbox-1.8/
+root@osboxes:~/pentbox-1.8# ls -l
+total 76
+-rwxr-xr-x 1 root root  4928 Aug  2 01:28 changelog.txt
+-rwxr-xr-x 1 root root 35147 Aug  2 01:28 COPYING.txt
+drwxr-xr-x 7 root root  4096 Aug  2 01:28 lib
+drwxr-xr-x 4 root root  4096 Aug  2 01:28 other
+-rwxr-xr-x 1 root root    85 Aug  2 01:28 pb_update.rb
+-rwxr-xr-x 1 root root  7647 Aug  2 01:28 pentbox.rb
+-rwxr-xr-x 1 root root    47 Aug  2 01:28 readme.txt
+-rwxr-xr-x 1 root root    41 Aug  2 01:28 todo.txt
+drwxr-xr-x 6 root root  4096 Aug  2 01:28 tools
+root@osboxes:~/pentbox-1.8# ./pentbox.rb 
+
+ PenTBox 1.8 
+    ____          _____ ____
+   |  _ \ ___ _ _|_   _| __ )  _____  __
+   | |_) / _ \ '_ \| | |  _ \ / _ \ \/ /
+   |  __/  __/ | | | | | |_) | (_) >  <
+   |_|   \___|_| |_|_| |____/ \___/_/\_\
+
+--------- Menu          ruby2.5.5 @ x86_64-linux-gnu
+
+1- Cryptography tools
+
+2- Network tools
+
+3- Web
+
+4- Ip grabber
+
+5- Geolocation ip
+
+6- Mass attack
+
+7- License and contact
+
+8- Exit
+
+   -> 2
+
+1- Net DoS Tester
+2- TCP port scanner
+3- Honeypot
+4- Fuzzer
+5- DNS and host gathering
+6- MAC address geolocation (samy.pl)
+
+0- Back
+
+   -> 3
+
+// Honeypot //
+
+You must run PenTBox with root privileges.
+
+ Select option.
+
+1- Fast Auto Configuration
+2- Manual Configuration [Advanced Users, more options]
+
+   -> 1
+
+  HONEYPOT ACTIVATED ON PORT 80 (2019-08-02 01:29:24 -0400)
+
+
+  INTRUSION ATTEMPT DETECTED! from 192.168.0.115:61867 (2019-08-02 01:29:46 -0400)
+ -----------------------------
+GET / HTTP/1.1
+Host: 192.168.0.116
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3
+Accept-Encoding: gzip, deflate
+Accept-Language: en-GB,en-US;q=0.9,en;q=0.8
+
+
+  INTRUSION ATTEMPT DETECTED! from 192.168.0.115:61868 (2019-08-02 01:29:47 -0400)
+ -----------------------------
+GET /robots.txt HTTP/1.1
+Host: 192.168.0.116
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36
+Accept: */*
+Accept-Encoding: gzip, deflate
+Accept-Language: en-GB,en-US;q=0.9,en;q=0.8
+
+
+  INTRUSION ATTEMPT DETECTED! from 192.168.0.115:61869 (2019-08-02 01:29:50 -0400)
+ -----------------------------
+GET /favicon.ico HTTP/1.1
+Host: 192.168.0.116
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36
+Accept: image/webp,image/apng,image/*,*/*;q=0.8
+Referer: http://192.168.0.116/
+Accept-Encoding: gzip, deflate
+Accept-Language: en-GB,en-US;q=0.9,en;q=0.8
+
+
+  INTRUSION ATTEMPT DETECTED! from 192.168.0.102:56806 (2019-08-02 01:30:10 -0400)
+ -----------------------------
+GET / HTTP/1.1
+Host: 192.168.0.116
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+
+  INTRUSION ATTEMPT DETECTED! from 192.168.0.102:56804 (2019-08-02 01:30:11 -0400)
+ -----------------------------
+GET /favicon.ico HTTP/1.1
+Host: 192.168.0.116
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+  INTRUSION ATTEMPT DETECTED! from 192.168.0.102:56808 (2019-08-02 01:30:13 -0400)
+ -----------------------------
+GET /favicon.ico HTTP/1.1
+Host: 192.168.0.116
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
